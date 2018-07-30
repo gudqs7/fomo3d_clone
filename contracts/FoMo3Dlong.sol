@@ -8,6 +8,9 @@ import "./library/NameFilter.sol";
 import "./library/F3DKeysCalcLong.sol";
 import "./library/F3Ddatasets.sol";
 import "./F3Devents.sol";
+//
+//import "./TeamJust.sol";
+//import "./PlayerBook.sol";
 
 
 contract FoMo3Dlong is F3Devents {
@@ -18,8 +21,8 @@ contract FoMo3Dlong is F3Devents {
     address private otherF3D_;
     address  private Divies;
     address  private Jekyll_Island_Inc;
-    PlayerBookInterface constant private playerBook =new PlayerBook();// PlayerBookInterface(0x3);//
-    TeamJustInterface constant private teamJust = new TeamJust();//TeamJustInterface(0x3);//
+    PlayerBookInterface constant private playerBook =PlayerBookInterface(0x4f4e8f044864184675d75639c6ecda2df706f5b8);//new PlayerBook();//
+    TeamJustInterface constant private teamJust = TeamJustInterface(0x3a5f8140b9213a0f733a6a639857c9df43ee3f5a);// new TeamJust();//
 
     //==============================================================================
     //     _ _  _  |`. _     _ _ |_ | _  _  .

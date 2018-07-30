@@ -33,23 +33,21 @@ module.exports = function (deployer, network, accounts) {
     deployer.deploy(UintCompressor);
     deployer.deploy(F3DKeysCalcLong);
 
-    deployer.deploy(P3DReplace);
-    deployer.deploy(SettingReplace);
     deployer.deploy(F3Devents);
 
-
-    deployer.link(SafeMath, TeamJust);
-    deployer.link(NameFilter, TeamJust);
-    deployer.link(MSFun, TeamJust);
-    deployer.link(P3DReplace, TeamJust);
-    deployer.deploy(TeamJust);
-
-    deployer.link(SafeMath, PlayerBook);
-    deployer.link(NameFilter, PlayerBook);
-    deployer.link(MSFun, PlayerBook);
-    deployer.link(P3DReplace, PlayerBook);
-    deployer.link(TeamJust, PlayerBook);
-    deployer.deploy(PlayerBook);
+    //
+    // deployer.link(SafeMath, TeamJust);
+    // deployer.link(NameFilter, TeamJust);
+    // deployer.link(MSFun, TeamJust);
+    // deployer.link(P3DReplace, TeamJust);
+    // deployer.deploy(TeamJust);
+    //
+    // deployer.link(SafeMath, PlayerBook);
+    // deployer.link(NameFilter, PlayerBook);
+    // deployer.link(MSFun, PlayerBook);
+    // deployer.link(P3DReplace, PlayerBook);
+    // deployer.link(TeamJust, PlayerBook);
+    // deployer.deploy(PlayerBook);
 
     deployer.link(SafeMath, FoMo3Dlong);
     deployer.link(NameFilter, FoMo3Dlong);
@@ -57,9 +55,9 @@ module.exports = function (deployer, network, accounts) {
     deployer.link(F3DKeysCalcLong, FoMo3Dlong);
     deployer.link(F3Ddatasets, FoMo3Dlong);
     deployer.link(F3Devents, FoMo3Dlong);
-    deployer.link(PlayerBook, FoMo3Dlong);
-    deployer.link(TeamJust, FoMo3Dlong);
-
+    // deployer.link(PlayerBook, FoMo3Dlong);
+    // deployer.link(TeamJust, FoMo3Dlong);
+    //
     deployer.deploy(FoMo3Dlong);
 
 };

@@ -78,12 +78,12 @@ import "./library/NameFilter.sol";
 import "./library/MSFun.sol";
 
 import "./interface/TeamJustInterface.sol";
-import "./interface/JIincForwarderInterface.sol";
-import "./interface/PlayerBookReceiverInterface.sol";
+import "./interface/DiviesInterface.sol";
+import "./our/P3DReplace.sol";
 
 
-contract TeamJust {
-    JIincForwarderInterface private Jekyll_Island_Inc = JIincForwarderInterface(0x0);
+contract TeamJust is TeamJustInterface {
+    address private Jekyll_Island_Inc;
     //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     // SET UP MSFun (note, check signers by name is modified from MSFun sdk)
     //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -113,11 +113,12 @@ contract TeamJust {
     constructor()
         public
     {
+        Jekyll_Island_Inc = msg.sender;
         address inventor = 0x18E90Fc6F70344f53EBd4f6070bf6Aa23e2D748C;
         address mantso   = 0x8b4DA1827932D71759687f925D17F81Fc94e3A9D;
         address justo    = 0x8e0d985f3Ec1857BEc39B76aAabDEa6B31B67d53;
         address sumpunk  = 0x7ac74Fcc1a71b106F12c55ee8F802C9F672Ce40C;
-		address deployer = 0xF39e044e1AB204460e06E87c6dca2c6319fC69E3;
+		address deployer = msg.sender;
         
         admins_[inventor] = Admin(true, true, "inventor");
         admins_[mantso]   = Admin(true, true, "mantso");
@@ -140,17 +141,10 @@ contract TeamJust {
         public
         payable
     {
-        Jekyll_Island_Inc.deposit.value(address(this).balance)();
+        Jekyll_Island_Inc.transfer(address(this).balance);
     }
-    
-    function setup(address _addr)
-        onlyDevs()
-        public
-    {
-        require( address(Jekyll_Island_Inc) == address(0) );
-        Jekyll_Island_Inc = JIincForwarderInterface(_addr);
-    }    
-    
+
+
     //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
     // MODIFIERS
     //^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
